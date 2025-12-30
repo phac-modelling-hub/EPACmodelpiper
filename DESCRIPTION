@@ -1,12 +1,23 @@
 Package: EPACmodelpiper
 Title: Pipeline functions for the EPAC model
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Irena", "Papst", , "irena.papst@phac-aspc.gc.ca", role = c("aut", "cre"))
-Description: Build simulation pipelines using the EPAC model
+Description: Build simulation pipelines using the EPAC model.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.0
+Imports: 
+    cli,
+    dplyr,
+    EPACmodel (>= 1.3.0),
+    purrr,
+    readr,
+    tidyr
+Remotes: 
+    github::phac-modelling-hub/EPACmodel
 Suggests: 
-    devtools
+    testthat (>= 3.0.0),
+    tibble
+Config/testthat/edition: 3
