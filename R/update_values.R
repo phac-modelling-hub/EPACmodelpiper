@@ -16,7 +16,7 @@ update_values <- function(params, model.name, state, pop, age_param_names = NULL
     # handle dynamic branching over params list
     # seems like this shouldn't be necessary
     # if dynamic branching works as you'd think it would...
-    if(is.list(params)) params <- unlist(params)
+    if(all(is.list(params))) params <- unlist(params)
 
     # update params from sample
     purrr::walk(

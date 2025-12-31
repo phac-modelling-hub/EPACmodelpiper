@@ -1,6 +1,6 @@
 Package: EPACmodelpiper
 Title: Pipeline functions for the EPAC model
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person("Irena", "Papst", , "irena.papst@phac-aspc.gc.ca", role = c("aut", "cre"))
 Description: Build simulation pipelines using the EPAC model.
