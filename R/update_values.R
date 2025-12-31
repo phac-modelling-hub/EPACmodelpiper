@@ -1,13 +1,13 @@
 #' Update values list with new parameters
 #'
 #' @param params (named vector) New parameters to update
-#' @param model.name (character) Short name of model in [{EPACmodel}]
+#' @param model.name (character) Short name of model in the EPACmodel package
 #' @param state (named vector) Initial state vector
 #' @param pop (tibble) table of population by age group
 #' @param age_param_names (character) Names of parameters to change by age. If NULL, don't update parameters by age.
 #' @param disease (character) Short name of disease for which to update parameters by age. Must match an option available in [ageify_params]
 #'
-#' @returns
+#' @returns Values (list)
 #' @export
 update_values <- function(params, model.name, state, pop, age_param_names = NULL, disease = NULL){
     # start with defaults

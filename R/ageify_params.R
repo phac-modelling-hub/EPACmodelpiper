@@ -4,7 +4,7 @@
 #' @param disease (character) Disease short name
 #' @param param_names (character) list of parameters to adjust
 #'
-#' @returns A list matching the format of [values]
+#' @returns A list matching the output format of [update_values()]
 #' @export
 ageify_params <- function(values, disease, param_names){
   if (!(disease %in% c("sarscov2", "sarscov1", "measles", "smallpox", "flu1918"))) cli::cli_abort(
@@ -28,7 +28,7 @@ ageify_params <- function(values, disease, param_names){
 #'
 #' @param disease (character) Disease short name
 #'
-#' @returns
+#' @returns Age-based multipliers for parameters (numeric)
 #' @export
 get_age_mult <- function(disease){
   # piecewise linear W-shaped curve for 1918 flu
@@ -53,4 +53,5 @@ get_age_mult <- function(disease){
       rep(mult[3], 4) # seniors (65+)
     )
   }
+  mult
 }

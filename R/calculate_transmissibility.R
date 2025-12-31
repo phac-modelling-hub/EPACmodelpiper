@@ -4,7 +4,7 @@
 #'
 #' @param values (list, named) Values list
 #'
-#' @returns
+#' @returns Transmissibility value (numeric)
 #' @export
 calculate_transmissibility <- function(values){
   transmissibility_formula(
@@ -23,13 +23,25 @@ calculate_transmissibility <- function(values){
 #'
 #' @param values (list, named) Values list
 #'
-#' @returns
+#' @returns Spectral radius of the contact matrix (numeric)
 #' @export
 calculate_rho <- function(values){
   max(abs(eigen(values$contact.pars$p.mat*values$contact.pars$c.hat, only.values = TRUE)$value))
 }
 
 #' Transmissiblity formula using model parameters
+#' 
+#' @param rho (numeric) Spectral radius of the contact matrix
+#' @param pop (numeric) Population by age group
+#' @param R0 (numeric) Average number of secondary cases from an index case in a wholly susceptible population
+#' @param prop_hosp (numeric) Proportion of infections that are hospitalized
+#' @param prop_nonhosp_death (numeric) Proportion of infections that are not hospitalized but are fatal
+#' @param days_infectious_I_R (numeric) Infectious period for infections that simply recover
+#' @param days_infectious_I_A (numeric) Infectious period for infections that are hospitalized
+#' @param days_infectious_I_D (numeric) Infectious period for infections that are fatal (outside of hospital)
+#'
+#' @returns Transmissibility value (numeric)
+#' @export
 transmissibility_formula <- function(
     rho,
     pop,
