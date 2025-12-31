@@ -7,6 +7,7 @@
 #' @returns A list matching the output format of [update_values()]
 #' @export
 ageify_params <- function(values, disease, param_names){
+  if (length(disease) != 1) cli::cli_abort("{.var disease} argument should be a single character string. Your input: {.val {disease}}")
   if (!(disease %in% c("sarscov2", "sarscov1", "measles", "smallpox", "flu1918"))) cli::cli_abort(
     "Age-based parameter assumptions are not defined for disease {.val {disease}}. Please update the definition of {.fn ageify_params} to include age-based assumptions for the desired disease."
   )
