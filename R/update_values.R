@@ -40,16 +40,8 @@ update_values <- function(params, model.name, state, pop, age_param_names = NULL
         pop.new = pop$value
     )
 
-    # calculate transmissibility from R0 and other (agefied) params
-    values$transmissibility <- calculate_transmissibility(values)
-
-    # generate flows by age
-    values$flow <- EPACmodel:::calculate_flow_hosp(values)
-
-    # validate flows
-    if(any(values$flow < 0)) cli::cli_abort(
-        "Negative values were detected in the flows for {.val {disease}}. Please inspect {.var values$flow} being computed in {.fn update_values}."
-    )
+    # refresh flow using updated parameters
+    values <- update_flow(values)
 
     # return updated values
     values
